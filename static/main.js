@@ -62,4 +62,31 @@ async function loadPage(url, pushState) {
     // 6. Scroll to top and Fade In
     window.scrollTo(0, 0);
     currentMain.classList.remove('fade-out');
+
+    // 7. Re-initialize Typewriter if present
+    initTypewriter();
 }
+
+function initTypewriter() {
+    const el = document.getElementById("typewriter");
+    if (!el) return;
+
+    // Reset content to be empty before starting
+    el.textContent = '';
+
+    const text = el.getAttribute("data-text");
+    let i = 0;
+
+    function typeWriter() {
+        if (i < text.length) {
+            el.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 160);
+        }
+    }
+
+    typeWriter();
+}
+
+// Initial load
+initTypewriter();

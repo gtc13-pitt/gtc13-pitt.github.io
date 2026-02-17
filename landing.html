@@ -22,19 +22,35 @@
         </ul>
     </nav>
     <div class="container">
-        <main style="display: flex; flex-direction: column; min-height: calc(100vh - 200px);">
-            <!-- Original Text Position Area -->
-            <div style="text-align: center;">
-                <h1>Hello, World.</h1>
+        <main>
+            <div>
+                <h1 id="typewriter" data-text="Hello, World."></h1>
             </div>
-            <h2 style="text-align: center;">Hi! I'm Lorenzo.</h2>
-
-            <!-- Button Area - Centers vertically in remaining space -->
-            <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center;">
-                <a href="main.html" class="btn-explore">Explore My Work</a>
+            <div style="
+        flex-grow:1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding-top: 150px;
+    ">
+                <a href="main.html" style="
+            display:inline-block;
+            padding:20px 48px;
+            font-family:'Inter', sans-serif;
+            font-weight:600;
+            font-size:28px;
+            color:white;
+            background:#000000;
+            border-radius:999px;
+            text-decoration:none;
+            box-shadow:0 6px 20px rgba(0,0,0,0.35);
+            transition:all 0.3s ease;
+        " onmouseover="this.style.transform='translateY(2px)'; this.style.boxShadow='0 10px 24px rgba(0,0,0,0.45)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.35)';">
+                    Click Here to Explore My Work
+                </a>
             </div>
         </main>
-
         <script src="static/main.js"></script>
     </div>
 </body>
