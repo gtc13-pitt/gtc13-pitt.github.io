@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('popstate', () => {
         loadPage(window.location.href, false);
     });
+
+    // Initial Fade In
+    setTimeout(() => {
+        const main = document.querySelector('main');
+        if (main) main.classList.remove('fade-out');
+    }, 100); // Short delay to ensure transition triggers
 });
 
 async function navigateTo(url) {
@@ -62,4 +68,45 @@ async function loadPage(url, pushState) {
     // 6. Scroll to top and Fade In
     window.scrollTo(0, 0);
     currentMain.classList.remove('fade-out');
+
+    // 7. Re-initialize scripts based on page content
+    initPageScripts();
 }
+
+// Flag to track if the landing animation has run
+window.hasRunLandingAnimation = false;
+
+function initPageScripts() {
+    // Typewriter Effect
+    const typewriterEl = document.getElementById("typewriter");
+    if (typewriterEl) {
+        const text = "Hello, World.";
+        typewriterEl.textContent = ""; // Clear existing text
+
+        // If it has already run, just show the text immediately
+        // if (window.hasRunLandingAnimation) {
+        //    typewriterEl.textContent = text;
+        //    return;
+        // }
+        // REMOVED at user request to play animation every time
+
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                typewriterEl.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 80);
+            } else {
+                // Animation finished
+                window.hasRunLandingAnimation = true;
+            }
+        }
+
+        // Start typing after a short delay
+        setTimeout(typeWriter, 500);
+    }
+}
+
+// Initial load check
+initPageScripts();
