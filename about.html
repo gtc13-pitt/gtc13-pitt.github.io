@@ -17,12 +17,32 @@
         <ul class="nav-links">
             <li><a href="#"></a></li>
             <li><a href="main.html">Projects</a></li>
-            <li><a href="resume.html">Resume & Credentials</a></li>
+            <li><a href="resume.html">Resume</a></li>
             <li><a href="about.html">About Me</a></li>
         </ul>
     </nav>
     <div class="container">
         <h1>Hello, World.</h1>
+        <div style="font-family: monospace; font-size: 20px;">
+            <span id="typewriter"
+                data-text="not sure what to put here yet. maybe some fun animations or something cool? maybe more personal things? maybe more like a page about my interests and hobbies outside of my projects for my portfolio? or maybe just scrap this page and group it all into resume?"></span>
+        </div>
+
+        <script>
+            const el = document.getElementById("typewriter");
+            const text = el.getAttribute("data-text");
+            let i = 0;
+
+            function typeWriter() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 7);
+                }
+            }
+
+            typeWriter();
+        </script>
         <main>
             <p class="lead">I'm Lorenzo Caria, an undergraduate student at the University of Pittsburgh. I'm majoring in
                 Digital Narrative and Interactive Design, and pursuing two certificates, Public and Professional
